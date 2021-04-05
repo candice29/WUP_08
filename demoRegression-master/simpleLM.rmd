@@ -73,3 +73,7 @@ summary.lm(WeightModel)
 ## Summary Statement
 
 We created six different models to predict length from other measurements and qualities of bears. The best model for predicting length using head length.This model has an adjusted R-squared of 0.8434, indicating that 84% of the error encountered by using the mean model is explained when using this model. The residual standard error for the head length model is 4.235. The spread of the errors over each point is lessened.
+
+The next best model used chest length to predict. This model has a adjusted R-squared of 0.7869 and a residual standard error of 4.939. The adjusted R-squared is slightly lower and the residual standard is slightly higher than the length model.
+
+We also created models using age, head width, neck, and weight. None of these models were as good as length and chest.
