@@ -13,6 +13,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ```{r}
 bears <- read.csv(file="BEARS.csv",header = TRUE)
+bears$SEX <- as.factor(bears$SEX)
 ```
 
 ## Model LENGTH ~ NECK  this is an example  
@@ -34,3 +35,41 @@ predict(simp,new,se.fit=TRUE)
 ```
 ## Surely there is another variable that can better predict LENGTH than NECK. Find one and compare its performance to that of neck by it value of Adjusted-Rsquared (bigger is better).
 
+```{r}
+AgeModel <- lm(LENGTH~AGE,data=bears)
+plot(LENGTH~AGE,data=bears)
+abline(AgeModel)
+summary.lm(AgeModel)
+```
+```{r}
+HeadLengthModel <- lm(LENGTH~HEADLEN,data=bears)
+plot(LENGTH~HEADLEN,data=bears)
+abline(HeadLengthModel)
+summary.lm(HeadLengthModel)
+```
+
+```{r}
+HeadWidthModel <- lm(LENGTH~HEADWTH,data=bears)
+plot(LENGTH~HEADWTH,data=bears)
+abline(HeadWidthModel)
+summary.lm(HeadWidthModel)
+```
+
+```{r}
+ChestModel <- lm(LENGTH~CHEST,data=bears)
+plot(LENGTH~CHEST,data=bears)
+abline(ChestModel)
+summary.lm(ChestModel)
+```
+
+```{r}
+WeightModel <- lm(LENGTH~WEIGHT,data=bears)
+plot(LENGTH~WEIGHT,data=bears)
+abline(WeightModel)
+summary.lm(WeightModel)
+```
+
+
+## Summary Statement
+
+We created six different models to predict length from other measurements and qualities of bears. The best model for predicting length using head length.This model has an adjusted R-squared of 0.8434, indicating that 84% of the error encountered by using the mean model is explained when using this model.
